@@ -31,4 +31,16 @@ class User extends Authenticatable
     protected $guarded = [
         'id',
     ];
+
+    public function bookMarks(){
+        return $this->hasMany('App\BookMark', 'user_id');
+    }
+
+    public function tags(){
+        return $this->hasMany('App\Tag', 'user_id');
+    }
+
+    public function folders(){
+        return $this->hasMany('App\Folder', 'user_id');
+    }
 }

@@ -16,4 +16,6 @@ require('laravel-elixir-vue');
 elixir(mix => {
     mix.sass('app.scss')
        .webpack('app.js');
+
+    mix.copy('resources/assets/bower_components/bootstrap/dist', 'public/assets/css/bootstrap');
 });
