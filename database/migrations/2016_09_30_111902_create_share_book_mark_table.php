@@ -23,7 +23,7 @@ class CreateShareBookMarkTable extends Migration
 
         Schema::table('share_book_marks', function (Blueprint $table){
             $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('bookmark_id')->references('id')->on('bookmarks');
+            $table->foreign('bookmark_id')->references('id')->on('book_marks');
         });
     }
 

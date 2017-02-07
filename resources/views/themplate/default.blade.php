@@ -3,7 +3,8 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Manager URL</title>
-	<link rel="stylesheet" href="{{asset('assets/css/bootstrap/css/bootstrap.min.css')}}">
+	<link rel="stylesheet" href="{{asset('css/bootstrap/css/bootstrap.min.css')}}">
+	
 </head>
 <body>
 
@@ -12,6 +13,7 @@
 			@yield('content')
 		</div>
 	</div>
-
+	<script src="{{asset('js/jquery/jquery.min.js')}}"></script>
+	<script src="{{asset('js/build/app.js')}}"></script>
 </body>
 </html>

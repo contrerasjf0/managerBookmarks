@@ -1,0 +1,13 @@
+.row-header{
+  background-color: #3fc1c9;
+  padding: 10px;
+}
+
+#form-login{
+  margin: 10px;
+}
+
+#form-register{
+  margin-top: 70px;
+  margin-left: 50px;
+}
