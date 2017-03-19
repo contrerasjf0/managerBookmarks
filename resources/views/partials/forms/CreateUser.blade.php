@@ -59,5 +59,5 @@
     <input type="password" class="form-control" id="password_confirmation" placeholder="Confirmaciòn de contraseña" name="password_confirmation">
   </div>
   {{ csrf_field() }}
-  <button type="submit" class="btn btn-default">Submit</button>
+  <button type="submit" class="btn btn-default">Registrarse</button>
 </form>

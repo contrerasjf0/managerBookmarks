@@ -1,5 +1,5 @@
 .row-header{
-  background-color: #3fc1c9;
+  background-color: rgb(40,65,89);/*#3fc1c9;*/
   padding: 10px;
 }
 
@@ -10,4 +10,71 @@
 #form-register{
   margin-top: 70px;
   margin-left: 50px;
+}
+
+.icon-header{
+  margin-top: -13px;
+}
+
+.photo-user-header{
+  width: 38px;
+  height:38px;
+}
+
+.size-icon{
+  font-size: 25px;
+}
+
+.margin-icon-header{
+  margin-top: 10px;
+  margin-bottom: 0px;
+}
+/***Estilo del nav***/
+nav.navbar {
+    background-color: rgb(40,65,89);
+}
+
+.navbar-default .navbar-nav > li > a, .navbar-default .navbar-text {
+    color:  rgb(255,210,99) !important;
+}
+
+.navbar-default .navbar-nav > .open > a:focus{
+  background-color: #3A5272;
+}
+
+.navbar-nav > li > .dropdown-menu{
+  background-color: rgb(40,65,89);
+}
+
+.dropdown-menu > li > a:focus, .dropdown-menu > li > a:hover{
+  color: rgb(255,210,99);
+  text-decoration: none;
+  background-color: #3A5272;
+}
+
+.navbar-nav .dropdown-menu > li > a{
+  color: rgb(255,210,99) !important;
+}
+
+.navbar-nav .dropdown-menu .divider{
+  background-color: rgb(244, 93, 84);
+}
+
+.navbar-nav .dropdown-menu{
+  border-top: 1px solid rgb(244, 93, 84);
+}
+
+/*******/
+
+.divider-vertical{
+  border-right: 3px solid rgb(244, 93, 84);
+  height: 100%;
+}
+
+.row-main{
+  margin-top: -21px;
+}
+
+.padding-row{
+  padding-top: 10px;
 }

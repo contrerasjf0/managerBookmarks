@@ -19,7 +19,7 @@ Route::post('login', 'Auth\web\AuthController@userAuth')->name('login');
 
 Route::group(['middleware' => 'auth'], function () {
   Route::get('manager', function(){
-    return view('welcome');
+    return view('themplate.manager');
   })->name('manager');
 });
 

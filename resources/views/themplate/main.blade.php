@@ -1,16 +1,18 @@
 @extends('themplate.default')
 
 @section('content')
-	<link rel="stylesheet" href="{{asset('css/styleMain.css')}}" media="screen">
+
 	<link rel="stylesheet" href="{{asset('css/vegas/vegas.min.css')}}">
 	<div class="row row-header">
 		<div class="col-xs-2">
 			<img src="{{asset('img/64Logo.png')}}">
 		</div>
 		<div class="col-xs-5 col-xs-offset-5">
-			<form class="form-inline" id="form-login">
-			  <div class="form-group">
-			    <input type="email" class="form-control" id="user_name" placeholder="Usuario" name="user_name">
+
+			<form class="form-inline" id="form-login" method="post" action="{{ route('login') }}" accept-charset="UTF-8">
+				@include('partials.errors.loginUser')
+				<div class="form-group">
+			    <input type="text" class="form-control" id="user_name" placeholder="Usuario" name="user_name">
 			  </div>
 			  <div class="form-group">
 			    <input type="password" class="form-control" id="password" placeholder="Contraseña" name="password">
@@ -20,6 +22,7 @@
 			      <input type="checkbox" name="remember"> Recordarme
 			    </label>
 			  </div>
+				{{ csrf_field() }}
 			  <button type="submit" class="btn btn-default">Iniciar</button>
 			</form>
 		</div>

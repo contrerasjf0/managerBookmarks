@@ -39,7 +39,6 @@ class UserCotroller extends Controller
     public function store(RequestStore $request)
     {
 
-
         $user = New User;
 
         $user->name = $request->name;
@@ -47,7 +46,7 @@ class UserCotroller extends Controller
         $user->user_name = $request->input('user_name');
         $user->email = $request->input('email');
         $user->password = bcrypt($request->input('password'));
-
+        
         $user->save();
 
         return redirect()->route('main')->with('status', [

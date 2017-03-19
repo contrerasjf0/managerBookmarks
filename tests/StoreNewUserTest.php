@@ -3,6 +3,7 @@
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
+use Illuminate\Support\Facades\Session;
 
 class StoreNewUserTest extends TestCase
 {
@@ -29,9 +30,7 @@ $response->status()
 
         ]);
 
-
-
-        $this->assertEquals(200, $response->status());
+        $this->assertEquals(302, $response->status());
         $this->seeInDatabase('users', [
           'email' => 'martha@hotmail.com'
         ]);

@@ -14,12 +14,12 @@ class AuthController extends Controller
     public function userAuth(Request $request)
     {
         $credentials = $request->only('user_name', 'password', 'remember');
-
+        
         if(Auth::attempt(['user_name' => $credentials['user_name'], 'password' => $credentials['password']], $credentials['remember'])){
           return redirect()->route('manager');
         }
 
-        return back();
+        return back()->with('statusLogin', 'false');
 
 
     }
