@@ -3,7 +3,7 @@
 import 'vegas';
 
 $(document).ready(() => {
-  var container = $("#container-main");
+  var container = $("#container-main-page-init");
 
   if(container.length == 1){
 

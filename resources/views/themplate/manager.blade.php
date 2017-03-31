@@ -7,7 +7,7 @@
 	<div class="row row-main">
 		<div class="col-xs-12" id="container-main">
 			<div class="row">
-				<div class="col-xs-7 divider-vertical">
+				<div class="col-xs-7">
 					<div class="row padding-row">
 						<div class="col-xs-offset-4 col-xs-8">
 							<div class="btn-group" role="group" aria-label="...">
@@ -18,7 +18,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-xs-5">
+				<div class="col-xs-5 divider-vertical">
 					<div class="row padding-row">
 						<div class="col-xs-offset-2 col-xs-10">
 							<div class="btn-group" role="group" aria-label="...">

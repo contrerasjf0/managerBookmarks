@@ -5,4 +5,5 @@ import 'babel-polyfill';
 
 import './backgroundSlider';
 import './hideMessages';
-import './forms/folder';
+import './seccions/addFolder/folder';
+import './seccions/addBookMark/bookMark';
