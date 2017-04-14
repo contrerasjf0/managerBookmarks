@@ -2,13 +2,19 @@
 
 namespace App;
 
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Model;
 
-class User extends Authenticatable
+/*use Illuminate\Notifications\Notifiable;
+use Illuminate\Foundation\Auth\User as Authenticatable;*/
+
+use Illuminate\Contracts\Auth\Authenticatable;
+use Illuminate\Auth\Authenticatable as AuthenticableTrait;
+
+class User extends Model implements Authenticatable
 {
-    use Notifiable;
-
+    /*use Notifiable;*/
+    use AuthenticableTrait;
+    
     protected $table = 'users';
     /**
      * The attributes that are mass assignable.
@@ -34,10 +40,6 @@ class User extends Authenticatable
 
     public function bookMarks(){
         return $this->hasMany('App\BookMark', 'user_id');
-    }
-
-    public function tags(){
-        return $this->hasMany('App\Tag', 'user_id');
     }
 
     public function folders(){

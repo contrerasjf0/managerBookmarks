@@ -12,7 +12,7 @@
 */
 
 $factory->define(App\User::class, function (Faker\Generator $faker) {
-    static $password = 00000;
+    static $password = 00000000;
 
     return [
         'name' => $faker->name,
@@ -22,5 +22,30 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'pleasures' => $faker->text,
         'password' => $password ?: $password = bcrypt('secret'),
         'remember_token' => str_random(10),
+    ];
+});
+
+$factory->define(App\BookMark::class, function (Faker\Generator $faker){
+    return [
+        'name' => $faker->word,
+        'folder_id' => $faker->randomDigitNotNull,
+        'url' => $faker->url,
+        'note' => $faker->text(100)   ,
+        'user_id' => $faker->randomDigitNotNull
+    ];
+});
+
+$factory->define(App\Tag::class, function(Faker\Generator $faker){
+    return [
+        'name' => $faker->word,
+        'user_id' => $faker->randomDigitNotNull
+    ];
+});
+
+$factory->define(App\Folder::class, function(Faker\Generator $faker){
+    return [
+        "name" =>  $faker->word,
+    	"description" =>$faker->sentence(8),
+    	"user_id" => $faker->randomDigitNotNull
     ];
 });

@@ -9,15 +9,14 @@ class Tag extends Model
     protected $table = "tags";
 
     protected $fillable = [
-    	"name",
-    	"user_id",
+    	"name"
     ];
 
     protected $guarded = [
     	"id",	
     ];
 
-    public function users(){
-    	return $this->belong('App\User');
+    public function bookMark(){
+    	return $this->belongToMany('App\BookMark', 'book_mark_tag');
     }
 }
