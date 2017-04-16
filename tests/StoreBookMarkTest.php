@@ -21,17 +21,13 @@ class StoreBookMarkTest extends TestCase
    public function testStoreAllOk()
     {
         $this->truncateTable();
-        factory('App\User', 1)->create();
-        $folder = factory('App\Folder', 1)->make();
+        $user = factory('App\User', 1)->create();
+        $folder = factory('App\Folder', 1)->create([
+            'user_id' => $user->id
+        ]);
         
-        $user = User::first();
 
         $this->be($user);
-
-        $folder->user_id = $user->id;
-        $folder->save();
-        
-        
 
         $data = [
             'name' => 'Tests PHP',
@@ -73,9 +69,8 @@ class StoreBookMarkTest extends TestCase
 
         $this->truncateTable();
 
-        factory('App\User', 1)->create();
+        $user = factory('App\User', 1)->create();
 
-        $user = User::first();
 
         $this->be($user);
 
@@ -108,9 +103,7 @@ class StoreBookMarkTest extends TestCase
 
         $this->truncateTable();
 
-        factory('App\User', 1)->create();
-
-        $user = User::first();
+        $user = factory('App\User', 1)->create();
 
         $this->be($user);
 
@@ -147,9 +140,7 @@ class StoreBookMarkTest extends TestCase
 
         $this->truncateTable();
 
-        factory('App\User', 1)->create();
-
-        $user = User::first();
+        $user = factory('App\User', 1)->create();
 
         $this->be($user);
 
@@ -186,9 +177,7 @@ class StoreBookMarkTest extends TestCase
 
         $this->truncateTable();
 
-        factory('App\User', 1)->create();
-
-        $user = User::first();
+        $user = factory('App\User', 1)->create();
 
         $this->be($user);
 
@@ -218,9 +207,7 @@ class StoreBookMarkTest extends TestCase
 
       
         $this->truncateTable();
-        factory('App\User', 1)->create();
-
-        $user = User::first();
+        $user = factory('App\User', 1)->create();
 
         $this->be($user);
 
@@ -244,14 +231,5 @@ class StoreBookMarkTest extends TestCase
             'note' => $data['note']
         ]);
 
-    }
-
-    private function truncateTable(){
-        DB::statement('SET FOREIGN_KEY_CHECKS=0');
-
-        DB::table('book_marks')->truncate();
-        DB::table('folders')->truncate();
-        DB::table('tags')->truncate();
-        DB::table('users')->truncate();
     }
 }

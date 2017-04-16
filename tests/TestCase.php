@@ -22,4 +22,13 @@ abstract class TestCase extends Illuminate\Foundation\Testing\TestCase
 
         return $app;
     }
+
+    protected function truncateTable(){
+        DB::statement('SET FOREIGN_KEY_CHECKS=0');
+
+        DB::table('book_marks')->truncate();
+        DB::table('folders')->truncate();
+        DB::table('tags')->truncate();
+        DB::table('users')->truncate();
+    }
 }

@@ -18,7 +18,15 @@ class FolderController extends Controller
      */
     public function index()
     {
-        //
+        $user = Auth::user();
+
+        //$folders = $user->folders;
+
+        $folders = Folder::where('user_id', $user->id)
+                         ->orderBy('name', 'desc')
+                         ->get();
+
+        return response()->json($folders, 200);
     }
 
     /**
