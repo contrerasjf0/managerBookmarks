@@ -6,9 +6,12 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use App\Http\Requests\Folder\api\RequestStore;
+use Yajra\Datatables\Datatables;
 
 use App\Folder;
+
 use Auth;
+
 class FolderController extends Controller
 {
     /**
@@ -106,4 +109,21 @@ class FolderController extends Controller
     {
         //
     }
+
+    /**
+     * 
+     * Return the list of resources for the dataTable
+     *
+     * @return  Yajra\Datatables\Datatables
+     */
+
+     public function getListDataTable(){
+        $folders = Folder::select(['id', 'name', 'description'])
+                   ->where('user_id', Auth::user()->id);
+        
+        return Datatables::of($folders)->make();
+     }
+
+     
+   
 }

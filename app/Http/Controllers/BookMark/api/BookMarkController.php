@@ -6,21 +6,13 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use App\Http\Requests\BookMark\api\RequestStore;
+use Yajra\Datatables\Datatables;
 use App\BookMark;
 use App\Tag;
 use Auth;
 
 class BookMarkController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
 
     /**
      * Show the form for creating a new resource.
@@ -111,6 +103,33 @@ class BookMarkController extends Controller
         //
     }
 
+    /**
+     * 
+     * Return the list resources for the dataTable
+     * @return  Yajra\Datatables\Datatables
+    */
+
+    public function getListDataTable(){
+        $bookMarks = BookMark::select(['id','name', 'url', 'note'])
+                     ->where('user_id', Auth::user()->id)
+                     ->where('folder_id', 0);
+
+        return Datatables::of($bookMarks)->make();
+    }
+
+     /**
+     * 
+     * Return list of bookMarks of a folder
+     * @return Yajra\Datatables\Datatables
+    */
+
+    public function getListForFolderDataTable($id){
+        $bookMarks = BookMark::select(['id','name', 'url', 'note'])
+                     ->where('folder_id', $id);
+
+        return Datatables::of($bookMarks)->make();
+    }
+
     private function storeTag(BookMark $bookMarkId, Array $tags){
 
         foreach ($tags as $tagName) {
@@ -120,4 +139,6 @@ class BookMarkController extends Controller
            $bookMarkId->tags()->attach($tag);
         }
     }
+
+    
 }
