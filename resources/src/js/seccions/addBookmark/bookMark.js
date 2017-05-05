@@ -1,5 +1,5 @@
 import clearField from "../../utils/clearField";
-import bookMark from "../../class/bookMark.class"
+import bookMark from "../../service/bookMark.class"
 import yo from "yo-yo";
 import empty from "empty-element";
 import eventUtil from "../../utils/events";
@@ -11,9 +11,7 @@ import isUndefined from "lodash/isUndefined";
 import utilValidate from "../../utils/validate";
 
 
-
-$(document).ready(() => {
-
+export default function (){
     let element = document.getElementById("add-link");
 
     if(!isNull(element)){
@@ -74,5 +72,4 @@ $(document).ready(() => {
 
         });
     }  
-    
-});
+}

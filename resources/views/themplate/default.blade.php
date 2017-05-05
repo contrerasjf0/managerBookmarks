@@ -3,8 +3,6 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Manager URL</title>
-	<link rel="stylesheet" href="{{asset('css/bootstrap/css/bootstrap.min.css')}}">
-	<link rel="stylesheet" href="{{asset('css/font-awesome-4-7-0/css/font-awesome.min.css')}}">
 	<link rel="stylesheet" href="{{asset('css/styleMain.css')}}" media="screen">
 
 </head>

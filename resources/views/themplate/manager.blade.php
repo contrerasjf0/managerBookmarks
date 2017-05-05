@@ -9,11 +9,40 @@
 			<div class="row">
 				<div class="col-xs-7">
 					<div class="row padding-row">
-						<div class="col-xs-offset-4 col-xs-8">
-							<div class="btn-group" role="group" aria-label="...">
-							  <button type="button" class="btn btn-default">Todos</button>
-							  <button type="button" class="btn btn-default">Carpetas</button>
-							  <button type="button" class="btn btn-default">Sin Carpeta</button>
+						<div class="col-xs-offset-1 col-xs-11">
+							<!-- Nav tabs -->
+							<ul class="nav nav-tabs" role="tablist">
+								<li role="presentation" class="active"><a href="#otherBookMarks" aria-controls="otherBookMarks" role="tab" data-toggle="tab">Otros marcadores</a></li>
+								<li role="presentation"><a href="#folders" aria-controls="folders" role="tab" data-toggle="tab">Carpetas</a></li>
+							</ul>
+							<!-- Tab panes -->
+							<div class="tab-content">
+								<div role="tabpanel" class="tab-pane fade in active" id="otherBookMarks">
+									 <table class="table table-bordered hover" id="bookmark-table" width="100%">
+										<thead>
+											<tr>
+												<th>Id</th>
+												<th>Favicon</th>
+												<th>Nombre</th>
+												<th>Url</th>
+												<th>Note</th>
+												<th>Compartir</th>
+											</tr>
+										</thead>
+									</table>
+								</div>
+								<div role="tabpanel" class="tab-pane" id="folders">
+									 <table class="table table-bordered hover" id="folder-table" width="100%">
+										<thead>
+											<tr>
+												<th>Id</th>
+												<th></th>
+												<th>Nombre</th>
+												<th>Descripciòn</th>
+											</tr>
+										</thead>
+									</table>
+								</div>
 							</div>
 						</div>
 					</div>

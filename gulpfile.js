@@ -43,6 +43,9 @@ gulp.task('copy', function (){
 
   gulp.src('./node_modules/vegas/dist/vegas.min.css')
       .pipe(gulp.dest('public/css/vegas'));
+
+  gulp.src('./node_modules/datatables.net-dt/**/*')
+      .pipe(gulp.dest('public/css/datatables.net-dt'));   
       
 });
 

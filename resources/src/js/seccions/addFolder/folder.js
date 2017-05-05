@@ -2,15 +2,14 @@ import clearField from "../../utils/clearField";
 import yo from  'yo-yo';
 import empty from "empty-element";
 import eventUtil from "../../utils/events";
-import folder from "../../class/folder.class";
+import folder from "../../service/folder.class";
 import template from "./template";
 import isNull from "lodash/isNull";
 import isUndefined from "lodash/isUndefined";
 import utilValidate from "../../utils/validate";
 
-$(document).ready(() => {
-
-  let element = document.getElementById("add-folder");
+export default function(){
+    let element = document.getElementById("add-folder");
 
   if(!isNull(element)){
 
@@ -56,5 +55,4 @@ $(document).ready(() => {
           });
     });
   }
-    
-});
+}

@@ -2,7 +2,7 @@
 
 @section('content')
 
-	<link rel="stylesheet" href="{{asset('css/vegas/vegas.min.css')}}">
+
 	<div class="row row-header">
 		<div class="col-xs-2">
 			<img src="{{asset('img/64Logo.png')}}">
