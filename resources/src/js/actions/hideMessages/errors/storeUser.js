@@ -1,6 +1,4 @@
-
-$(document).ready(() => {
-
+export default function(){
   var helperBlocks = $('.help-block');
 
   if(helperBlocks.length > 0){
@@ -10,5 +8,4 @@ $(document).ready(() => {
        divInput.removeClass('has-error');
      }, 3000);
   }
-
-});
+}

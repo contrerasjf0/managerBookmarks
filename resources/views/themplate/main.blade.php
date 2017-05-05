@@ -2,7 +2,7 @@
 
 @section('content')
 
-	<link rel="stylesheet" href="{{asset('css/vegas/vegas.min.css')}}">
+
 	<div class="row row-header">
 		<div class="col-xs-2">
 			<img src="{{asset('img/64Logo.png')}}">
@@ -28,7 +28,7 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-xs-12" style="height: 650px;" id="container-main">
+		<div class="col-xs-12" style="height: 650px;" id="container-main-page-init">
 			<div class="row">
 				<!--<div class="" slider-background style="width: 500px;height: 500px;">
 

@@ -1,6 +1,4 @@
-
-$(document).ready(() => {
-
+export default function (){
   var  alertSuccess = $('.alert-success');
 
   if(alertSuccess.length > 0){
@@ -8,5 +6,4 @@ $(document).ready(() => {
        alertSuccess.remove();
      }, 3000);
   }
-
-});
+}

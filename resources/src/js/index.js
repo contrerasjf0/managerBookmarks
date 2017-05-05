@@ -3,6 +3,6 @@
 import 'babel-polyfill';
 
 
-import './backgroundSlider';
-import './hideMessages';
-import './forms/folder';
+import './pages';
+import './actions/hideMessages';
+import './seccions';
