@@ -32,7 +32,7 @@ export default function template(){
                         <label for="folder_id" class="col-xs-2 control-label">Carpeta</label>
                         <div class="col-xs-8">
                             <select class="form-control" id="folder_id" name="folder_id">
-                                <option value="0"></option>
+                                
                             </select>
                             <div id="messaje-error-folder_id" class="alert alert-danger style-messaje-form hide" role="alert">
                                 

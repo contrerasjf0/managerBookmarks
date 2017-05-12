@@ -453,12 +453,3 @@ table.dataTable td {
     margin-top: 0.5em;
   }
 }
-
-td.details-control {
-    background: url('../images/plus.png') no-repeat center center;
-    cursor: pointer;
-}
-tr.shown td.details-control {
-    background: url('../images/minus.png') no-repeat center center;
-    cursor: pointer;
-}

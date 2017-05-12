@@ -13,13 +13,13 @@ html, body{
   
 }
 
-.row-header{
-  background-color: rgb(40,65,89);/*#3fc1c9;*/
+/*.row-header{
+  background-color: rgb(40,65,89);
   padding: 10px;
-}
+}*/
 
 #form-login{
-  margin: 10px;
+  margin: 15px 10px 10px 10px;
 }
 
 #form-register{
@@ -40,13 +40,16 @@ html, body{
   font-size: 25px;
 }
 
-.margin-icon-header{
-  margin-top: 10px;
-  margin-bottom: 0px;
+.navbar-header p{
+  font-size: 20px;
 }
 /***Estilo del nav***/
 nav.navbar {
     background-color: rgb(40,65,89);
+    border-color: rgb(40,65,89);
+    height: 68px;
+    margin-bottom: 0px;
+     color:  rgb(255,210,99) !important; 
 }
 
 .navbar-default .navbar-nav > li > a, .navbar-default .navbar-text {
@@ -106,4 +109,16 @@ nav.navbar {
 }
 .style-margin-messaje{
   margin-top:30px;
+}
+
+a.rocketUrl{
+  font-size: 22px;
+}
+
+td.details-control {
+    background: url('datatables.net-dt/images/plus.png') no-repeat center center;
+    cursor: pointer;
+}
+tr.shown td.details-control {
+    background: url('datatables.net-dt/images/minus.png') no-repeat center center;
 }

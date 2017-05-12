@@ -1,11 +1,15 @@
+import axios from "axios";
+import config from "../configs/configs";
 import isEmpty from "lodash/isEmpty";
 import utilValidate from "../utils/validate";
+import isUndefined from "lodash/isUndefined";
+import clearField from "../utils/clearField";
 
 class bookMark{
 
     constructor(){}
 
-    save(data = {}) {
+    save(data = {}, objTags) {
 
         if(isEmpty(data)) throw (new Error('Var data empty'));
 
@@ -18,15 +22,35 @@ class bookMark{
            
         };
 
+        let response = {};
         let objUtilValidate = new utilValidate();
         let errors = objUtilValidate.isValidate(data, rules);
 
         if(!isEmpty(errors)) return errors;
 
-        return {
-            status: 200,
-            id: 1
-        };
+        axios({
+                method: 'post',
+                url: config.baseUrl+'bookmark',
+                headers:{'X-CSRF-TOKEN': this.csrf},
+                data: data
+            }).then((res) =>{
+
+                    if(isUndefined(res.data.id)){
+                        objUtilValidate.showMessagesDanger(res.data);
+                    }else{
+                        objUtilValidate.showMessageSuccess("success-save","danger-save");
+                        try {
+                            let objClearField = new clearField(); 
+                            objClearField.clear(data, objTags);
+                        } catch (e) {
+                            console.log('('+e.name+') -> '+e.message); 
+                        }
+                    }
+            }).catch((err) => {
+                //throw (new Error(err.response.data))
+                console.log(err);
+            });
+
     }
 
 }

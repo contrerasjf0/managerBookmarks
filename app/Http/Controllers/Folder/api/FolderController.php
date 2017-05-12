@@ -51,7 +51,7 @@ class FolderController extends Controller
     public function store(RequestStore $request)
     {   
         $user = Auth::user();
-
+        
         $folder = new Folder;
 
         $folder->name = $request->input('name');
@@ -62,7 +62,7 @@ class FolderController extends Controller
 
         return response()->json([
                     'id' => $folder->id
-                ]);
+                ], 200);
     }
 
     /**
@@ -121,7 +121,7 @@ class FolderController extends Controller
         $folders = Folder::select(['id', 'name', 'description'])
                    ->where('user_id', Auth::user()->id);
         
-        return Datatables::of($folders)->make();
+        return Datatables::of($folders)->make(true);
      }
 
      

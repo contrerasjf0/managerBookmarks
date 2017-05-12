@@ -1,4 +1,4 @@
-import clearField from "../../utils/clearField";
+
 import bookMark from "../../service/bookMark.class"
 import yo from "yo-yo";
 import empty from "empty-element";
@@ -7,11 +7,10 @@ import taggle from "taggle";
 import template from "./template";
 import isNull from "lodash/isNull";
 import isEmpty from "lodash/isEmpty";
-import isUndefined from "lodash/isUndefined";
-import utilValidate from "../../utils/validate";
-
+import folder from "../../service/folder.class";
 
 export default function (){
+
     let element = document.getElementById("add-link");
 
     if(!isNull(element)){
@@ -20,9 +19,12 @@ export default function (){
         
             var form = template();
 
-            let formContainer = document.getElementById('container-form');
+            let formContainer = document.getElementById('container-form'),
+                folderObj = new folder();
 
             empty(formContainer).appendChild(form);
+
+            folderObj.getList();
 
             var objTags = new taggle('tags', {
                 placeholder: "Ingresa tus tags",
@@ -49,21 +51,7 @@ export default function (){
                 };
 
                 try {
-                    let result = objBookMark.save(data),
-                    objUtilValidate = new utilValidate();
-
-                    if(isUndefined(result.status)){
-                        objUtilValidate.showMessagesDanger(result);
-                    }else{
-                        objUtilValidate.showMessageSuccess("success-save","danger-save");
-
-                        try {
-                            let objClearField = new clearField(); 
-                            objClearField.clear(data, objTags);
-                        } catch (e) {
-                            console.log('('+e.name+') -> '+e.message); 
-                        }
-                    }
+                    let result = objBookMark.save(data, objTags);
                 }catch (e) {
                     console.log('('+e.name+') -> '+e.message); 
                 }  

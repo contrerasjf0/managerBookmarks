@@ -37,7 +37,7 @@ class RequestStore extends FormRequest
         
         $validator->sometimes('folder_id', 'integer|exists:folders,id', function($input)
         {
-            return $input->folder_id !== 0;
+            return $input->folder_id != 0;
         });
 
         return $validator;

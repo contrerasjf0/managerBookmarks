@@ -49,7 +49,7 @@ class BookMarkController extends Controller
         $tags = $request->input('tags');
 
         if(count($tags))
-            $this->storeTag($bookMark, $tags);
+            $this->storeTag($bookMark, $tags, $user);
         
             
         return response()->json([
@@ -110,11 +110,26 @@ class BookMarkController extends Controller
     */
 
     public function getListDataTable(){
+        $favicon = new \Favicon\Favicon();
+
         $bookMarks = BookMark::select(['id','name', 'url', 'note'])
                      ->where('user_id', Auth::user()->id)
                      ->where('folder_id', 0);
 
-        return Datatables::of($bookMarks)->make();
+        return Datatables::of($bookMarks)
+              ->addColumn('favicon', function($bookmark) use ($favicon){
+
+                  $urlFavicon = $favicon->get($bookmark->url);
+
+                  return '<img src="'.$urlFavicon.'" alt="'.$bookmark->name.'" height="25" width="25">';
+              })
+              ->editColumn('url', '<a href="{{$url}}" class="rocketUrl" target="_blank"><i class="fa fa-rocket" aria-hidden="true"></i></a>')
+              ->addColumn('share', function($bookmark){
+                  return '<a class="btn btn-default" href="#" role="button" data-toggle="modal" data-target="#modalShare" data-whatever="'.$bookmark->id.'">'.
+                            '<i class="fa fa-share-alt" aria-hidden="true"></i>'.
+                            '</a>';
+              })
+              ->make(true);
     }
 
      /**
@@ -124,13 +139,29 @@ class BookMarkController extends Controller
     */
 
     public function getListForFolderDataTable($id){
+        $favicon = new \Favicon\Favicon();
+
         $bookMarks = BookMark::select(['id','name', 'url', 'note'])
+                     ->where('user_id', Auth::user()->id)
                      ->where('folder_id', $id);
 
-        return Datatables::of($bookMarks)->make();
+        return Datatables::of($bookMarks)
+              ->addColumn('favicon', function($bookmark) use ($favicon){
+
+                  $urlFavicon = $favicon->get($bookmark->url);
+
+                  return '<img src="'.$urlFavicon.'" alt="'.$bookmark->name.'" height="25" width="25">';
+              })
+              ->editColumn('url', '<a href="{{$url}}" class="rocketUrl" target="_blank"><i class="fa fa-rocket" aria-hidden="true"></i></a>')
+              ->addColumn('share', function($bookmark){
+                  return '<a class="btn btn-default" href="#" role="button" data-toggle="modal" data-target="#modalShare" data-whatever="'.$bookmark->id.'">'.
+                            '<i class="fa fa-share-alt" aria-hidden="true"></i>'.
+                            '</a>';
+              })
+              ->make(true);
     }
 
-    private function storeTag(BookMark $bookMarkId, Array $tags){
+    private function storeTag(BookMark $bookMarkId, Array $tags, $user){
 
         foreach ($tags as $tagName) {
            //where('legs', '>', 100)->firstOrFail();

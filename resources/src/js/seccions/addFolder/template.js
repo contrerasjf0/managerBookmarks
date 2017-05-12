@@ -11,9 +11,9 @@ export default function template(){
           </div>
           <form class="form-horizontal form-style-margin-add">
             <div class="form-group">
-            <label for="name_folder" class="col-xs-2 control-label">Nombre</label>
+            <label for="name" class="col-xs-2 control-label">Nombre</label>
             <div class="col-xs-8">
-              <input type="text" class="form-control" id="name_folder" name="name_folder">
+              <input type="text" class="form-control" id="name" name="name">
               <div id="messaje-error-name_folder" class="alert alert-danger style-messaje-form hide" role="alert">
                                 
               </div>

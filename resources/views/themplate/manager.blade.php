@@ -3,7 +3,7 @@
 @section('content')
 
 	@include('partials.sections.header')
-
+	{{ csrf_field() }}
 	<div class="row row-main">
 		<div class="col-xs-12" id="container-main">
 			<div class="row">
@@ -12,13 +12,13 @@
 						<div class="col-xs-offset-1 col-xs-11">
 							<!-- Nav tabs -->
 							<ul class="nav nav-tabs" role="tablist">
-								<li role="presentation" class="active"><a href="#otherBookMarks" aria-controls="otherBookMarks" role="tab" data-toggle="tab">Otros marcadores</a></li>
-								<li role="presentation"><a href="#folders" aria-controls="folders" role="tab" data-toggle="tab">Carpetas</a></li>
+								<li role="presentation" class="active"><a href="#otherBookMarks" aria-controls="otherBookMarks" role="tab" data-toggle="tab"><i class="fa fa-link" aria-hidden="true"></i>&nbsp;&nbsp;Otros marcadores</a></li>
+								<li role="presentation"><a href="#folders" aria-controls="folders" role="tab" data-toggle="tab"></i><i class="fa fa-folder" aria-hidden="true"></i>&nbsp;&nbsp;Carpetas</a></li>
 							</ul>
 							<!-- Tab panes -->
 							<div class="tab-content">
 								<div role="tabpanel" class="tab-pane fade in active" id="otherBookMarks">
-									 <table class="table table-bordered hover" id="bookmark-table" width="100%">
+									 <table class="table row-border hover" id="bookmark-table" width="100%">
 										<thead>
 											<tr>
 												<th>Id</th>
@@ -32,11 +32,11 @@
 									</table>
 								</div>
 								<div role="tabpanel" class="tab-pane" id="folders">
-									 <table class="table table-bordered hover" id="folder-table" width="100%">
+									 <table class="table row-border hover" id="folder-table" width="100%">
 										<thead>
 											<tr>
 												<th>Id</th>
-												<th></th>
+												<th> </th>
 												<th>Nombre</th>
 												<th>Descripciòn</th>
 											</tr>
